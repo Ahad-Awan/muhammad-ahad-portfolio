@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -61,7 +62,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="min-h-screen flex flex-col items-center justify-center p-8 pt-30 text-white relative z-10"
+      className="min-h-screen flex flex-col items-center justify-center p-8 pt-22 sm:pt-32 text-white relative z-10"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -76,7 +77,7 @@ export default function Home() {
         </svg>
       </motion.div>
       <motion.div
-        className="absolute bottom-20 right-10 md:right-20 text-blue-400 opacity-30 hidden sm:block"
+        className="absolute bottom-60 right-10 md:right-20 text-blue-400 opacity-30 hidden sm:block"
         animate={floatingAnimation}
       >
         <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
@@ -96,17 +97,17 @@ export default function Home() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <div className="flex justify-center gap-4 ">
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
               WordPress Expert
             </span>
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
               Freelancer
             </span>
           </div>
         </motion.div>
 
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
           variants={itemVariants}
         >
           <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
@@ -200,6 +201,17 @@ export default function Home() {
             <div className="absolute inset-0 bg-emerald-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
           </motion.button>
         </motion.div>
+      </motion.div>
+
+      {/* Text Hover Effect Section */}
+      <motion.div
+        className="h-[12rem] flex items-center justify-center "
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <TextHoverEffect text="WORDPRESS EXPERT" />
       </motion.div>
     </motion.div>
   );
