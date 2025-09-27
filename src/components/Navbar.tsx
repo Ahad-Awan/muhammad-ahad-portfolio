@@ -54,7 +54,7 @@ const Navbar = () => {
           </div>
 
           {/* Nav Links */}
-          <div className="flex space-x-1 sm:space-x-2 bg-[#0D1314] p-0.5 sm:p-2 md:p-3 lg:p-3.5 rounded-full border border-gray-700">
+          <div className="flex space-x-1 sm:space-x-2 bg-[#1A2027] p-0.5 sm:p-2 md:p-3 lg:p-3.5 rounded-full border border-gray-700">
             {navItems.map((item, index) => (
               <a
                 key={index}
