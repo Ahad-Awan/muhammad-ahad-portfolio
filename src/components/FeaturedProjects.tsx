@@ -106,7 +106,7 @@ export function FeaturedProjects() {
           variants={itemVariants}
         >
           <motion.button
-            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
+            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-8"
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               // Navigate to projects section

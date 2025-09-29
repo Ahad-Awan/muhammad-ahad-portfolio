@@ -207,7 +207,7 @@ export default function Home() {
 
       {/* Text Hover Effect Section */}
       <motion.div
-        className="h-[12rem] flex items-center justify-center mt-4"
+        className="h-[6rem] sm:h-[8rem] md:h-[10rem] lg:h-[12rem] flex items-center justify-center mt-2 sm:mt-4"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}

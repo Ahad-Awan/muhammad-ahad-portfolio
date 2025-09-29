@@ -15,7 +15,11 @@ interface ProjectCardProps {
 export function ProjectCard({ title, description, imageUrl, livePreviewUrl, technologies }: ProjectCardProps) {
   return (
     <div className="w-full" style={{margin: '0', padding: '0'}}>
-      <CardContainer className="inter-var !mb-0 !mt-0 sm:mb-auto sm:mt-auto" style={{margin: '0', padding: '0'}}>
+      <CardContainer 
+        className="inter-var !mb-0 !mt-0 sm:mb-auto sm:mt-auto" 
+        containerClassName="!py-8 sm:!py-4 md:!py-8 lg:!py-12"
+        
+      >
       <CardBody className="relative group/card dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] w-full max-w-md h-auto rounded-xl p-4 sm:p-6 border">
         <CardItem translateZ="100" className="w-full mb-4">
           <img
