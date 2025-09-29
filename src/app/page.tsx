@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { TextHoverEffect } from "@/components/ui/text-hover-effect";
+import { FeaturedProjects } from "@/components/FeaturedProjects";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -61,12 +62,13 @@ export default function Home() {
   }
 
   return (
-    <motion.div
-      className="min-h-screen flex flex-col items-center justify-center p-8 pt-22 sm:pt-32 text-white relative z-10"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <>
+      <motion.div
+        className="min-h-screen flex flex-col items-center justify-center p-8 pt-22 sm:pt-32 text-white relative z-10"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
       {/* Floating WordPress Icons */}
       <motion.div
         className="absolute top-25 left-10 md:left-20 text-blue-400 opacity-30 hidden sm:block"
@@ -158,7 +160,7 @@ export default function Home() {
           variants={itemVariants}
         >
           <motion.button
-            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-lg shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
+            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               // Add your portfolio/work section navigation here
@@ -205,7 +207,7 @@ export default function Home() {
 
       {/* Text Hover Effect Section */}
       <motion.div
-        className="h-[12rem] flex items-center justify-center "
+        className="h-[12rem] flex items-center justify-center mt-4"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -213,6 +215,10 @@ export default function Home() {
       >
         <TextHoverEffect text="WORDPRESS EXPERT" />
       </motion.div>
-    </motion.div>
+      </motion.div>
+      
+      {/* Featured Projects Section */}
+      <FeaturedProjects />
+    </>
   );
 }

@@ -1,0 +1,129 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { ProjectCard } from "./ProjectCard";
+
+// Dummy project data
+const projectsData = [
+  {
+    id: 1,
+    title: "E-Commerce WordPress Site",
+    description: "A fully functional e-commerce website built with WooCommerce, featuring custom product pages, payment integration, and responsive design.",
+    imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3",
+    livePreviewUrl: "https://example.com/project1",
+    technologies: ["WordPress", "WooCommerce", "PHP", "JavaScript", "MySQL"]
+  },
+  {
+    id: 2,
+    title: "Corporate Business Website",
+    description: "Modern corporate website with custom WordPress theme, advanced SEO optimization, and interactive elements for enhanced user experience.",
+    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3",
+    livePreviewUrl: "https://example.com/project2",
+    technologies: ["WordPress", "Custom Theme", "SEO", "Responsive Design"]
+  },
+  {
+    id: 3,
+    title: "Portfolio & Blog Platform",
+    description: "Creative portfolio website with integrated blog functionality, custom post types, and optimized performance for fast loading times.",
+    imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2569&auto=format&fit=crop&ixlib=rb-4.0.3",
+    livePreviewUrl: "https://example.com/project3",
+    technologies: ["WordPress", "Custom Post Types", "Performance", "Blog"]
+  }
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+export function FeaturedProjects() {
+  return (
+    <section className="pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative z-10" id="featured-projects">
+      <motion.div
+        className="max-w-7xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        {/* Header Section */}
+        <motion.div className="text-center mb-8 sm:mb-12 lg:mb-2" variants={itemVariants}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
+            <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
+              Featured Projects
+            </span>
+          </h2>
+          <p className="text-base sm:text-lg lg:text-2xl text-gray-300 max-w-2xl mx-auto px-4 mt-10">
+            Explore my latest work and creative solutions.
+          </p>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 justify-items-center"
+          variants={containerVariants}
+        >
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={project.id}
+              variants={itemVariants}
+              custom={index}
+              className="w-full -mb-4 sm:mb-0"
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                livePreviewUrl={project.livePreviewUrl}
+                technologies={project.technologies}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        {/* View All Projects Button */}
+        <motion.div
+          className="flex justify-center "
+          variants={itemVariants}
+        >
+          <motion.button
+            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              // Navigate to projects section
+              const projectsSection = document.getElementById("projects");
+              if (projectsSection) {
+                projectsSection.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <span className="relative z-10 flex items-center gap-2">
+              View All Projects
+              
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </motion.button>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
