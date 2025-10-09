@@ -77,9 +77,9 @@ export function FeaturedProjects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Projects Grid - Show only first 3 projects */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10 justify-items-center"
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-0 sm:gap-y-1 md:gap-y-1 lg:gap-y-2 justify-items-center"
           variants={containerVariants}
         >
           {projectsData.map((project, index) => (
@@ -109,11 +109,8 @@ export function FeaturedProjects() {
             className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-8"
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              // Navigate to projects section
-              const projectsSection = document.getElementById("projects");
-              if (projectsSection) {
-                projectsSection.scrollIntoView({ behavior: "smooth" });
-              }
+              // Navigate to featured projects page
+              window.location.href = '/featured-projects';
             }}
           >
             <span className="relative z-10 flex items-center gap-2">
