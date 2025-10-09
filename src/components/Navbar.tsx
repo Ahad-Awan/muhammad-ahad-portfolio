@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 const Navbar = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const navItems = [
     { name: "PROJECTS", href: "#projects" },
     { name: "SERVICES", href: "#services" },
@@ -29,17 +31,27 @@ const Navbar = () => {
     }
   };
 
+  // ✅ Logo click → scroll to top only
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1314]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8 lg:px-10">
         <div className="flex justify-center items-center h-18 sm:h-20 md:h-24 lg:h-30 space-x-1 sm:space-x-2 lg:space-x-4">
-          {/* Logo */}
+          {/* 🌟 Logo */}
           <div className="flex-shrink-0">
             <div
-              className="relative w-10 h-10 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 rounded-full flex items-center justify-center cursor-pointer
-              bg-gradient-to-br from-cyan-500 to-purple-500 p-[1px] sm:p-[2px] 
-              shadow-[0_0_8px_rgba(56,189,248,0.4)] sm:shadow-[0_0_20px_rgba(56,189,248,0.5)] md:shadow-[0_0_25px_rgba(56,189,248,0.6)]
-              transition-transform duration-300 ease-in-out hover:scale-110"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              onClick={handleLogoClick}
+              className={`relative w-10 h-10 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 
+                rounded-full flex items-center justify-center cursor-pointer
+                bg-gradient-to-br from-cyan-500 to-purple-500 p-[1px] sm:p-[2px] 
+                shadow-[0_0_8px_rgba(56,189,248,0.4)] sm:shadow-[0_0_20px_rgba(56,189,248,0.5)] md:shadow-[0_0_25px_rgba(56,189,248,0.6)]
+                transition-transform duration-700 ease-in-out 
+                ${isHovered ? "rotate-[360deg] scale-110" : "rotate-0"}`}
             >
               <div className="w-full h-full rounded-full flex items-center justify-center shadow-inner shadow-cyan-400/40">
                 <Image
@@ -53,8 +65,8 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Nav Links */}
-          <div className="flex space-x-1 sm:space-x-2 bg-[#1A2027] p-2 sm:p-2 md:p-3 lg:py-3  rounded-full border border-gray-700">
+          {/* 🔗 Nav Links */}
+          <div className="flex space-x-1 sm:space-x-2 bg-[#1A2027] p-2 sm:p-2 md:p-3 lg:py-3 rounded-full border border-gray-700">
             {navItems.map((item, index) => (
               <a
                 key={index}
