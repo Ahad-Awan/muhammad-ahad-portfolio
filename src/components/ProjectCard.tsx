@@ -17,10 +17,10 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
     <div className="w-full" style={{margin: '0', padding: '0'}}>
       <CardContainer 
         className="inter-var !mb-0 !mt-0 sm:mb-auto sm:mt-auto" 
-        containerClassName="!py-8 sm:!py-4 md:!py-8 lg:!py-12"
+        containerClassName="!py-1 sm:!py-2 md:!py-2 lg:!py-3"
         
       >
-      <CardBody className="relative group/card dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] w-full max-w-md h-auto rounded-xl p-4 sm:p-6 border">
+      <CardBody className="relative group/card dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] w-full max-w-md h-[520px] sm:h-[550px] rounded-xl p-4 sm:p-6 border flex flex-col">
         <CardItem translateZ="100" className="w-full mb-4">
           <img
             src={imageUrl}
@@ -41,7 +41,8 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
         <CardItem
           as="p"
           translateZ="60"
-          className="text-neutral-500 text-sm max-w-sm dark:text-neutral-300 mb-3 sm:mb-4"
+          className="text-neutral-500 text-sm max-w-sm dark:text-neutral-300 mb-3 sm:mb-4 flex-grow overflow-hidden"
+          style={{ minHeight: '60px', maxHeight: '80px' }}
         >
           {description}
         </CardItem>
@@ -60,7 +61,7 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
           </div>
         </CardItem>
         
-        <div className="flex justify-end items-center">
+        <div className="flex justify-end items-center mt-auto">
           <CardItem
             translateZ={20}
             as={motion.a}

@@ -295,7 +295,7 @@ export default function FeaturedProjectsPage() {
       <Navbar />
 
       {/* Home Icon in Top-Left */}
-      <div className="fixed top-4 left-4 sm:top-6 sm:left-6 z-50">
+      <div className="fixed top-3 left-4 sm:top-6 sm:left-6 z-50">
         <motion.div
           className="group relative"
           initial={{ opacity: 0, x: -20 }}
@@ -303,7 +303,7 @@ export default function FeaturedProjectsPage() {
           transition={{ duration: 0.5 }}
         >
           <motion.button
-            onClick={() => window.location.href = '/'}
+            onClick={() => (window.location.href = "/")}
             className="p-3 rounded-full bg-gray-800/80 backdrop-blur-sm border border-gray-600/30 hover:bg-gray-700/80 transition-all duration-300 cursor-pointer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -322,7 +322,7 @@ export default function FeaturedProjectsPage() {
               />
             </svg>
           </motion.button>
-          
+
           {/* Tooltip */}
           <div className="absolute left-full ml-3 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="bg-gray-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg border border-gray-600/30 whitespace-nowrap">
@@ -341,21 +341,23 @@ export default function FeaturedProjectsPage() {
           animate="visible"
         >
           {/* Header Section */}
-          <motion.div className="text-center mb-8 sm:mb-12 lg:mb-16" variants={itemVariants}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
+          <motion.div
+            className="text-center mb-8 sm:mb-12 lg:mb-16"
+            variants={itemVariants}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-8 mt-8 sm:mt-10 lg:mt-14">
               <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
                 Featured Projects
               </span>
             </h1>
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-3xl mx-auto px-4">
-              Discover my comprehensive portfolio of web development projects. From e-commerce platforms to corporate websites, 
-              each project represents a unique solution crafted with modern technologies and best practices.
+            <p className="text-xs sm:text-base lg:text-xl xl:text-2xl text-gray-300 max-w-3xl mx-auto px-4">
+              Explore my latest work and creative solutions
             </p>
           </motion.div>
 
           {/* Projects Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-0 sm:gap-y-1 md:gap-y-1 lg:gap-y-2 justify-items-center"
+            className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-4 justify-items-center"
             variants={containerVariants}
           >
             {allProjectsData.map((project, index) => (
@@ -363,7 +365,7 @@ export default function FeaturedProjectsPage() {
                 key={project.id}
                 variants={itemVariants}
                 custom={index}
-                className="w-full -mb-4 sm:mb-0"
+                className="w-full"
               >
                 <ProjectCard
                   title={project.title}

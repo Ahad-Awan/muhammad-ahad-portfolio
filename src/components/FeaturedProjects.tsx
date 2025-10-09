@@ -79,7 +79,7 @@ export function FeaturedProjects() {
 
         {/* Projects Grid - Show only first 3 projects */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-0 sm:gap-y-1 md:gap-y-1 lg:gap-y-2 justify-items-center"
+          className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-4 justify-items-center"
           variants={containerVariants}
         >
           {projectsData.map((project, index) => (
@@ -87,7 +87,7 @@ export function FeaturedProjects() {
               key={project.id}
               variants={itemVariants}
               custom={index}
-              className="w-full -mb-4 sm:mb-0"
+              className="w-full"
             >
               <ProjectCard
                 title={project.title}
