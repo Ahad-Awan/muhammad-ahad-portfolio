@@ -99,7 +99,7 @@ const skills = [
 
 export function SkillsExpertise() {
   return (
-    <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 relative z-10" id="skills-expertise">
+    <section className="py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 relative z-10" id="skills-expertise">
       <motion.div
         className="max-w-7xl mx-auto"
         variants={containerVariants}
@@ -114,14 +114,14 @@ export function SkillsExpertise() {
               Skills & Expertise
             </span>
           </h2>
-          <p className="text-xs sm:text-base lg:text-2xl text-gray-300 max-w-2xl mx-auto px-4 mt-6 mb-10 sm:mb-20 sm:mt-10">
+          <p className="text-xs sm:text-base lg:text-xl text-gray-300 max-w-2xl mx-auto px-4 mt-6 mb-10 sm:mb-20 sm:mt-10">
             Technologies and tools I use to bring ideas into reality.
           </p>
         </motion.div>
 
         {/* Skills Grid */}
         <motion.div
-          className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24"
+          className="flex flex-wrap justify-center items-center gap-8 sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 mt-12 sm:mt-16 lg:mt-30"
           variants={containerVariants}
         >
           {skills.map((skill, index) => (
