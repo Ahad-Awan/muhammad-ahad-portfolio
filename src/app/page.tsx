@@ -98,7 +98,7 @@ export default function Home() {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <div className="flex justify-center gap-4 ">
+          <div className="flex justify-center gap-4 mt-4">
             <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
               WordPress Expert
             </span>
@@ -205,9 +205,9 @@ export default function Home() {
         </motion.div>
       </motion.div>
 
-      {/* Text Hover Effect Section */}
+      {/* Text Hover Effect Section - Desktop Only */}
       <motion.div
-        className="h-[13rem] sm:h-[14rem] md:h-[15rem] lg:h-[15rem] flex items-center justify-center  w-full px-6"
+        className="hidden lg:flex h-[15rem] items-center justify-center  w-full px-6"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -216,6 +216,9 @@ export default function Home() {
         <TextHoverEffect text="WORDPRESS EXPERT" />
       </motion.div>
       </motion.div>
+      
+      {/* Responsive Spacer - Small gap on mobile/tablet, no gap on desktop */}
+      <div className="h-8 lg:h-0"></div>
       
       {/* Featured Projects Section */}
       <FeaturedProjects />

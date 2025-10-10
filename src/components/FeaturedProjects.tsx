@@ -67,12 +67,12 @@ export function FeaturedProjects() {
       >
         {/* Header Section */}
         <motion.div className="text-center mb-8 sm:mb-12 lg:mb-2" variants={itemVariants}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-base sm:text-lg lg:text-2xl text-gray-300 max-w-2xl mx-auto px-4 mt-10">
+          <p className="text-xs sm:text-base lg:text-2xl text-gray-300 max-w-2xl mx-auto px-4 mt-6 mb-10 sm:mb-20 sm:mt-10">
             Explore my latest work and creative solutions.
           </p>
         </motion.div>
@@ -106,7 +106,7 @@ export function FeaturedProjects() {
           variants={itemVariants}
         >
           <motion.button
-            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-8"
+            className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-14 sm:mt-20"
             whileTap={{ scale: 0.95 }}
             onClick={() => {
               // Navigate to featured projects page
