@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   FaBolt,
   FaPuzzlePiece,
@@ -15,8 +15,31 @@ export default function StatsSection() {
   const [projects, setProjects] = useState(0);
   const [clients, setClients] = useState(0);
   const [tech, setTech] = useState(0);
+  const [visible, setVisible] = useState(false);
+
+  // ✅ Ref for the section
+  const sectionRef = useRef(null);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect(); // Run only once
+        }
+      },
+      { threshold: 0.4 } // 40% visible to trigger
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return; // Run only when visible
+
     // Simple counter animation
     const duration = 2000;
     const steps = 60;
@@ -33,10 +56,13 @@ export default function StatsSection() {
     }, duration / steps);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [visible]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center text-white px-6 py-20">
+    <section
+      ref={sectionRef}
+      className="min-h-screen flex items-center justify-center text-white px-6 py-20"
+    >
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
         {/* Left: What Drives Me */}
         <div className="bg-[#171717] p-8 rounded-2xl border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] shadow-xl">
@@ -144,7 +170,8 @@ export default function StatsSection() {
           <div className="flex items-center gap-3 bg-gradient-to-r from-purple-600 to-blue-600 p-4 rounded-xl">
             <FaBullseye className="text-xl text-white" />
             <p className="text-sm text-white">
-              Currently focused on building scalable web applications and learn new technologies.
+              Currently focused on building scalable web applications and learn
+              new technologies.
             </p>
           </div>
         </div>
