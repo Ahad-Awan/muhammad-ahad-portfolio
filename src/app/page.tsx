@@ -146,7 +146,7 @@ export default function Home() {
             ].map((skill, index) => (
               <motion.span
                 key={skill}
-                className="px-3 py-1 bg-gray-800/50 border border-gray-600/30 rounded-full text-gray-300 text-sm"
+                className="px-3 py-1 bg-gray-800/50 border border-blue-500/30 rounded-full text-blue-300 text-sm"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.5 + index * 0.1, duration: 0.3 }}
