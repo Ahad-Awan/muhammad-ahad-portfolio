@@ -6,6 +6,7 @@ import { TextHoverEffect } from "@/components/ui/text-hover-effect";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { SkillsExpertise } from "@/components/SkillsExpertise";
 import StatsSection from "@/components/StatsSection.tsx";
+import ServicesSection from "@/components/ServiceSection";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -230,6 +231,9 @@ export default function Home() {
 
       {/* Stats Section */}
       <StatsSection />
+
+      {/* Services Section */}
+      <ServicesSection/>
     </>
   );
 }
