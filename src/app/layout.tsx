@@ -15,8 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Ahad - WordPress Expert & Freelancer",
-  description: "Expert WordPress developer specializing in custom themes, plugins, and performance optimization. Transform your ideas into powerful websites.",
+  title: "Muhammad Ahad - WordPress Expert",
+  description:
+    "Expert WordPress developer specializing in custom themes, plugins, and performance optimization. Transform your ideas into powerful websites.",
+  icons: {
+    icon: "../AhadLogo.png",
+  },
 };
 
 export default function RootLayout({

@@ -4,32 +4,57 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 
+
 // Featured project data - optimized for performance
 const projectsData = [
   {
     id: 1,
-    title: "E-Commerce WordPress Site",
-    description: "A fully functional e-commerce website built with WooCommerce, featuring custom product pages, payment integration, and responsive design.",
-    imageUrl: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3",
-    livePreviewUrl: "https://example.com/project1",
-    technologies: ["WordPress", "WooCommerce", "PHP", "JavaScript", "MySQL"]
+    title: "L’Happy Curious",
+    description:
+      "L’Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
+    imageUrl: "../images/LhappyCurious.png",
+    livePreviewUrl: "https://www.lhappycurious.fr/",
+    technologies: [
+      "WordPress",
+      "Elementor",
+      "Hello Elementor Theme",
+      "Yoast SEO",
+      "Contact Form 7",
+      "Restaurant website",
+    ],
   },
   {
     id: 2,
-    title: "Corporate Business Website",
-    description: "Modern corporate website with custom WordPress theme, advanced SEO optimization, and interactive elements for enhanced user experience.",
-    imageUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3",
-    livePreviewUrl: "https://example.com/project2",
-    technologies: ["WordPress", "Custom Theme", "SEO", "Responsive Design"]
+    title: "Ennomark Business Website",
+    description:
+      "Ennomark is a full-service digital agency offering web development, graphic design, SEO, digital marketing, cinematography, and app development.",
+    imageUrl: "../images/ennomark.png",
+    livePreviewUrl: "https://ennomark.co/",
+    technologies: [
+      "WordPress",
+      "Elementor",
+      "Hostinger",
+      "Yoast SEO",
+      "Contact Form 7",
+      "Digital Agency",
+    ],
   },
   {
     id: 3,
-    title: "Portfolio & Blog Platform",
-    description: "Creative portfolio website with integrated blog functionality, custom post types, and optimized performance for fast loading times.",
-    imageUrl: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=2569&auto=format&fit=crop&ixlib=rb-4.0.3",
-    livePreviewUrl: "https://example.com/project3",
-    technologies: ["WordPress", "Custom Post Types", "Performance", "Blog"]
-  }
+    title: "Qutiee - Smart Skincare",
+    description:
+      "Qutiee is a Turkish beauty brand specializing in high-quality skincare products designed to enhance natural radiance and promote healthy, glowing skin.",
+    imageUrl: "../images/qutiee.png",
+    livePreviewUrl: "https://qutiee.com.tr/",
+    technologies: [
+      "WordPress",
+      "WooCommerce",
+      "Elementor",
+      "RankMath SEO",
+      "Contact Form 7",
+      "E-commerce",
+    ],
+  },
 ] as const;
 
 const containerVariants = {

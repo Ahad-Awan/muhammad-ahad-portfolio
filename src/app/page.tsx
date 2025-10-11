@@ -105,10 +105,10 @@ export default function Home() {
           >
             <div className="flex justify-center gap-4 mt-4">
               <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
-                WordPress Expert
+                Hello I'm
               </span>
               <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
-                Freelancer
+                WordPress Expert
               </span>
             </div>
           </motion.div>
@@ -168,7 +168,8 @@ export default function Home() {
               className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                const workSection = document.getElementById("featured-projects");
+                const workSection =
+                  document.getElementById("featured-projects");
                 workSection?.scrollIntoView({ behavior: "smooth" });
               }}
             >
