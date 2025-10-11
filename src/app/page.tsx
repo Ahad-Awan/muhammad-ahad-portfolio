@@ -8,6 +8,7 @@ import { SkillsExpertise } from "@/components/SkillsExpertise";
 import StatsSection from "@/components/StatsSection.tsx";
 import ServicesSection from "@/components/ServiceSection";
 import Testimonials from "@/components/Testimonials";
+import ContactSection from "@/components/Contact";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -238,6 +239,9 @@ export default function Home() {
 
       {/* Testimonials Section */}
       <Testimonials/>
+
+      {/* Contact Section */}
+      <ContactSection/>
     </>
   );
 }
