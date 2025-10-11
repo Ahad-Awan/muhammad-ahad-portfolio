@@ -29,7 +29,7 @@ const services = [
     title: "Custom Business Websites",
     desc: "Modern, responsive websites that reflect your brand and deliver exceptional user experiences.",
   },
-];
+] as const;
 
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -69,11 +69,11 @@ export default function FeaturedServices() {
           </p>
         </motion.div>
 
-        {/* Grid - same design but responsive */}
+        {/* Services Grid */}
         <div className="flex flex-wrap justify-center gap-y-8">
           {services.map((service, i) => (
             <div
-              key={i}
+              key={service.id}
               className={`w-full sm:w-1/2 flex ${
                 i % 2 === 0 ? "justify-end sm:pr-3" : "justify-start sm:pl-3"
               } justify-center`}

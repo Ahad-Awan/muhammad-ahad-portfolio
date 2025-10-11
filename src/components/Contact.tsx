@@ -17,32 +17,28 @@ export default function ContactSection() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs
-      .send("service_r5gw7te", "template_00m8zsq", form, "UarXK4uvaHrQWIL9z")
-      .then(
-        () => {
-          setLoading(false);
-          setSuccess("Message sent successfully!");
-          setForm({ name: "", email: "", message: "" });
+    try {
+      await emailjs.send("service_r5gw7te", "template_00m8zsq", form, "UarXK4uvaHrQWIL9z");
+      setLoading(false);
+      setSuccess("Message sent successfully!");
+      setForm({ name: "", email: "", message: "" });
 
-          setTimeout(() => {
-            setSuccess("");
-          }, 5000);
-        },
-        (error) => {
-          setLoading(false);
-          setSuccess("Failed to send message. Try again.");
-          console.error(error);
+      setTimeout(() => {
+        setSuccess("");
+      }, 5000);
+    } catch (error) {
+      setLoading(false);
+      setSuccess("Failed to send message. Please try again.");
+      console.error('Email send error:', error);
 
-          setTimeout(() => {
-            setSuccess("");
-          }, 3000);
-        }
-      );
+      setTimeout(() => {
+        setSuccess("");
+      }, 3000);
+    }
   };
 
   const containerVariants = {

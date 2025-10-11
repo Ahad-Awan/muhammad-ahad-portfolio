@@ -38,17 +38,19 @@ export default function Testimonials() {
 
   const [active, setActive] = useState(0);
 
-  const handleNext = () =>
+  const handleNext = () => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  const handlePrev = () =>
+  };
+  const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
 
   const isActive = (index: number) => index === active;
 
   useEffect(() => {
     const interval = setInterval(handleNext, 4000);
     return () => clearInterval(interval);
-  }, []);
+  }, [handleNext]);
 
   const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
   const itemVariants = {

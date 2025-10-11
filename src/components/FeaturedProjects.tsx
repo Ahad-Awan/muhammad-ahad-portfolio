@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 
-// Dummy project data
+// Featured project data - optimized for performance
 const projectsData = [
   {
     id: 1,
@@ -30,7 +30,7 @@ const projectsData = [
     livePreviewUrl: "https://example.com/project3",
     technologies: ["WordPress", "Custom Post Types", "Performance", "Blog"]
   }
-];
+] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -102,20 +102,16 @@ export function FeaturedProjects() {
         
         {/* View All Projects Button */}
         <motion.div
-          className="flex justify-center "
+          className="flex justify-center"
           variants={itemVariants}
         >
           <motion.button
             className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-14 sm:mt-20"
             whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              // Navigate to featured projects page
-              window.location.href = '/featured-projects';
-            }}
+            onClick={() => window.location.href = '/featured-projects'}
           >
             <span className="relative z-10 flex items-center gap-2">
               View All Projects
-              
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </motion.button>

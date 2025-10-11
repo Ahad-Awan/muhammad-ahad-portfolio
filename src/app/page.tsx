@@ -168,11 +168,8 @@ export default function Home() {
               className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer"
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                // Add your portfolio/work section navigation here
                 const workSection = document.getElementById("featured-projects");
-                if (workSection) {
-                  workSection.scrollIntoView({ behavior: "smooth" });
-                }
+                workSection?.scrollIntoView({ behavior: "smooth" });
               }}
             >
               <span className="relative z-10 flex items-center gap-2">
@@ -185,7 +182,6 @@ export default function Home() {
               className="group px-8 py-4 rounded-full border-2 border-emerald-400 text-emerald-400 font-semibold transition-all duration-300 relative overflow-hidden backdrop-blur-sm cursor-pointer"
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                // Replace with your actual Fiverr profile URL
                 window.open("https://www.fiverr.com/your-username", "_blank");
               }}
             >
@@ -199,7 +195,7 @@ export default function Home() {
 
         {/* Text Hover Effect Section - Desktop Only */}
         <motion.div
-          className="hidden lg:flex h-[15rem] items-center justify-center  w-full px-6"
+          className="hidden lg:flex h-[15rem] items-center justify-center w-full px-6"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

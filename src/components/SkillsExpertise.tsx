@@ -53,7 +53,7 @@ const skills = [
   {
     name: "WordPress",
     icon: <SiWordpress className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#21759B]" // Official WordPress blue
+    color: "text-[#21759B]"
   },
   {
     name: "React",
@@ -142,8 +142,6 @@ export function SkillsExpertise() {
                     ease: "linear"
                   }
                 }}
-                initial={{ rotate: 0 }}
-                animate={{ rotate: 0 }}
               >
                 {skill.icon}
               </motion.div>

@@ -16,13 +16,13 @@ export const TextHoverEffect = ({
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
+    if (svgRef.current && cursor.x !== 0 && cursor.y !== 0) {
       const svgRect = svgRef.current.getBoundingClientRect();
       const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
       const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
       setMaskPosition({
-        cx: `${cxPercentage}%`,
-        cy: `${cyPercentage}%`,
+        cx: `${Math.max(0, Math.min(100, cxPercentage))}%`,
+        cy: `${Math.max(0, Math.min(100, cyPercentage))}%`,
       });
     }
   }, [cursor]);
@@ -66,13 +66,7 @@ export const TextHoverEffect = ({
           animate={maskPosition}
           transition={{ duration: duration ?? 0, ease: "easeOut" }}
 
-          // example for a smoother animation below
 
-          //   transition={{
-          //     type: "spring",
-          //     stiffness: 300,
-          //     damping: 50,
-          //   }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />

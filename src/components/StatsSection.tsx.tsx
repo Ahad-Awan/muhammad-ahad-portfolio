@@ -26,33 +26,41 @@ export default function StatsSection() {
         const entry = entries[0];
         if (entry.isIntersecting) {
           setVisible(true);
-          observer.disconnect(); // Run only once
+          observer.disconnect();
         }
       },
-      { threshold: 0.4 } // 40% visible to trigger
+      { threshold: 0.4 }
     );
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
     if (!visible) return; // Run only when visible
 
-    // Simple counter animation
     const duration = 2000;
     const steps = 60;
     let frame = 0;
 
     const interval = setInterval(() => {
       frame++;
-      setYears(Math.min(Math.floor((3 * frame) / steps), 3));
-      setProjects(Math.min(Math.floor((12 * frame) / steps), 12));
-      setClients(Math.min(Math.floor((8 * frame) / steps), 8));
-      setTech(Math.min(Math.floor((10 * frame) / steps), 10));
+      const progress = frame / steps;
+      
+      setYears(Math.min(Math.floor(3 * progress), 3));
+      setProjects(Math.min(Math.floor(12 * progress), 12));
+      setClients(Math.min(Math.floor(8 * progress), 8));
+      setTech(Math.min(Math.floor(10 * progress), 10));
 
-      if (frame >= steps) clearInterval(interval);
+      if (frame >= steps) {
+        clearInterval(interval);
+      }
     }, duration / steps);
 
     return () => clearInterval(interval);

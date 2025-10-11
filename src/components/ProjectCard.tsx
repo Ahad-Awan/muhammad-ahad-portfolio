@@ -18,7 +18,6 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
       <CardContainer 
         className="inter-var !mb-0 !mt-0 sm:mb-auto sm:mt-auto" 
         containerClassName="!py-1 sm:!py-2 md:!py-2 lg:!py-3"
-        
       >
       <CardBody className="relative group/card dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] w-full max-w-md h-[520px] sm:h-[550px] rounded-xl p-4 sm:p-6 border flex flex-col">
         <CardItem translateZ="100" className="w-full mb-4">
@@ -27,7 +26,8 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
             height="1000"
             width="1000"
             className="h-44 sm:h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
-            alt={title}
+            alt={`${title} project screenshot`}
+            loading="lazy"
           />
         </CardItem>
 

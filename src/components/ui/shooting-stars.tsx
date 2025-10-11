@@ -25,6 +25,10 @@ interface ShootingStarsProps {
 }
 
 const getRandomStartPoint = () => {
+  if (typeof window === 'undefined') {
+    return { x: 0, y: 0, angle: 45 };
+  }
+  
   const side = Math.floor(Math.random() * 4);
   const offset = Math.random() * window.innerWidth;
 
@@ -56,41 +60,51 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
     const createStar = () => {
-      const { x, y, angle } = getRandomStartPoint();
-      const newStar: ShootingStar = {
-        id: Date.now(),
-        x,
-        y,
-        angle,
-        scale: 1,
-        speed: Math.random() * (maxSpeed - minSpeed) + minSpeed,
-        distance: 0,
-      };
-      setStar(newStar);
+      try {
+        const { x, y, angle } = getRandomStartPoint();
+        const newStar: ShootingStar = {
+          id: Date.now(),
+          x,
+          y,
+          angle,
+          scale: 1,
+          speed: Math.random() * (maxSpeed - minSpeed) + minSpeed,
+          distance: 0,
+        };
+        setStar(newStar);
 
-      const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
-      setTimeout(createStar, randomDelay);
+        const randomDelay = Math.random() * (maxDelay - minDelay) + minDelay;
+        timeoutId = setTimeout(createStar, randomDelay);
+      } catch (error) {
+        console.warn('Error creating shooting star:', error);
+      }
     };
 
     createStar();
 
-    return () => {};
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
   }, [minSpeed, maxSpeed, minDelay, maxDelay]);
 
   useEffect(() => {
+    let animationFrame: number;
+    
     const moveStar = () => {
-      if (star) {
+      if (star && typeof window !== 'undefined') {
         setStar((prevStar) => {
           if (!prevStar) return null;
-          const newX =
-            prevStar.x +
-            prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
-          const newY =
-            prevStar.y +
-            prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
+          
+          const newX = prevStar.x + prevStar.speed * Math.cos((prevStar.angle * Math.PI) / 180);
+          const newY = prevStar.y + prevStar.speed * Math.sin((prevStar.angle * Math.PI) / 180);
           const newDistance = prevStar.distance + prevStar.speed;
           const newScale = 1 + newDistance / 100;
+          
           if (
             newX < -20 ||
             newX > window.innerWidth + 20 ||
@@ -99,6 +113,7 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
           ) {
             return null;
           }
+          
           return {
             ...prevStar,
             x: newX,
@@ -108,10 +123,15 @@ export const ShootingStars: React.FC<ShootingStarsProps> = ({
           };
         });
       }
+      animationFrame = requestAnimationFrame(moveStar);
     };
 
-    const animationFrame = requestAnimationFrame(moveStar);
-    return () => cancelAnimationFrame(animationFrame);
+    animationFrame = requestAnimationFrame(moveStar);
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
   }, [star]);
 
   return (

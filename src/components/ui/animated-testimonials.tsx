@@ -37,7 +37,7 @@ export const AnimatedTestimonials = ({
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
-  }, [autoplay]);
+  }, [autoplay, handleNext]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
@@ -81,11 +81,12 @@ export const AnimatedTestimonials = ({
                 >
                   <img
                     src={testimonial.src}
-                    alt={testimonial.name}
+                    alt={`${testimonial.name} - ${testimonial.designation}`}
                     width={500}
                     height={500}
                     draggable={false}
                     className="h-full w-full rounded-3xl object-cover object-center"
+                    loading="lazy"
                   />
                 </motion.div>
               ))}

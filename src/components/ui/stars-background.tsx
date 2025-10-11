@@ -87,9 +87,7 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
     }
 
     return () => {
-      if (canvasRef.current) {
-        resizeObserver.unobserve(canvasRef.current);
-      }
+      resizeObserver.disconnect();
     };
   }, [
     starDensity,
@@ -111,17 +109,19 @@ export const StarsBackground: React.FC<StarBackgroundProps> = ({
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const currentTime = Date.now() * 0.001;
+      
       stars.forEach((star) => {
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
-        ctx.fill();
-
+        
+        let opacity = star.opacity;
         if (star.twinkleSpeed !== null) {
-          star.opacity =
-            0.5 +
-            Math.abs(Math.sin((Date.now() * 0.001) / star.twinkleSpeed) * 0.5);
+          opacity = 0.5 + Math.abs(Math.sin(currentTime / star.twinkleSpeed) * 0.5);
         }
+        
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.fill();
       });
 
       animationFrameId = requestAnimationFrame(render);
