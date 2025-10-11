@@ -35,7 +35,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as any,
       },
     },
   };
@@ -46,7 +46,7 @@ export default function Home() {
       duration: 3,
       repeat: Infinity,
       repeatType: "reverse" as const,
-      ease: "easeInOut",
+      ease: "easeInOut" as any,
     },
   };
 
