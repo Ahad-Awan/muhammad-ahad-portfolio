@@ -61,7 +61,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className=" py-20">
+    <section className="py-20" id="reviews">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         {/* Section Heading */}
         <motion.div
@@ -173,12 +173,14 @@ export default function Testimonials() {
             <div className="flex gap-4 mt-10">
               <button
                 onClick={handlePrev}
+                aria-label="Previous Testimonial"
                 className="group flex h-10 w-10 items-center justify-center rounded-full bg-transparent border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] transition-all"
               >
                 <IconArrowLeft className="h-5 w-5  text-white transition-transform duration-300 group-hover:-translate-x-1" />
               </button>
               <button
                 onClick={handleNext}
+                aria-label="Next Testimonial"
                 className="group flex h-10 w-10 items-center justify-center rounded-full bg-transparent border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] transition-all"
               >
                 <IconArrowRight className="h-5 w-5 text-white transition-transform duration-300 group-hover:translate-x-1" />

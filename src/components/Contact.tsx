@@ -29,7 +29,6 @@ export default function ContactSection() {
           setSuccess("Message sent successfully!");
           setForm({ name: "", email: "", message: "" });
 
-          // Automatically clear the success message after 5 seconds
           setTimeout(() => {
             setSuccess("");
           }, 5000);
@@ -39,7 +38,6 @@ export default function ContactSection() {
           setSuccess("Failed to send message. Try again.");
           console.error(error);
 
-          // Automatically clear the error message after 5 seconds
           setTimeout(() => {
             setSuccess("");
           }, 3000);
@@ -47,8 +45,8 @@ export default function ContactSection() {
       );
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const containerVariants = {
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
@@ -57,15 +55,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-16 sm:py-20 text-white">
+    <section className="py-16 sm:py-20 text-white" id="contact">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Heading */}
         <motion.div
           className="text-center mb-8 sm:mb-12 lg:mb-2"
-          variants={itemVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
+          variants={containerVariants}
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
@@ -81,7 +79,13 @@ export default function ContactSection() {
         {/* Contact Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Left Contact Info */}
-          <div className="rounded-xl border border-[#06B2CF]/[0.3] p-6 sm:p-8 shadow-xl flex flex-col justify-center">
+          <motion.div
+            className="rounded-xl border border-[#06B2CF]/[0.3] p-6 sm:p-8 shadow-xl flex flex-col justify-center"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <h3 className="text-2xl sm:text-3xl font-semibold mb-5 sm:mb-6">
               Get in Touch
             </h3>
@@ -130,10 +134,16 @@ export default function ContactSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right Form */}
-          <div className="rounded-xl border border-[#06B2CF]/[0.3] dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] p-6 sm:p-8 shadow-xl flex flex-col justify-center">
+          <motion.div
+            className="rounded-xl border border-[#06B2CF]/[0.3] p-6 sm:p-8 shadow-xl flex flex-col justify-center"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
             <h3 className="text-2xl sm:text-3xl font-semibold mb-4 sm:mb-6">
               Ready to Launch?
             </h3>
@@ -149,7 +159,7 @@ export default function ContactSection() {
                 placeholder="Your Name"
                 value={form.name}
                 onChange={handleChange}
-                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
+                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
                 required
               />
               <input
@@ -158,7 +168,7 @@ export default function ContactSection() {
                 placeholder="Your Email"
                 value={form.email}
                 onChange={handleChange}
-                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
+                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
                 required
               />
               <textarea
@@ -167,7 +177,7 @@ export default function ContactSection() {
                 value={form.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
+                className="w-full p-3 sm:p-4 bg-transparent rounded-xl border border-[#06B2CF]/[0.3] placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#06B2CF]/[0.3]"
                 required
               />
 
@@ -183,7 +193,7 @@ export default function ContactSection() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.button>
 
-              {/* Success / Error Message with fade animation */}
+              {/* Success / Error Message */}
               <AnimatePresence>
                 {success && (
                   <motion.p
@@ -197,7 +207,7 @@ export default function ContactSection() {
                 )}
               </AnimatePresence>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

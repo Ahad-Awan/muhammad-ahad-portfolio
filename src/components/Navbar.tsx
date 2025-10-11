@@ -2,14 +2,15 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import ahadLogo from "../../public/AhadLogo.png";
 
 const Navbar = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const navItems = [
-    { name: "PROJECTS", href: "#projects" },
-    { name: "SKILLS", href: "#skills" },
-    { name: "SERVICES", href: "#services" },
+    { name: "PROJECTS", href: "#featured-projects" },
+    { name: "SKILLS", href: "#skills-expertise" },
+    { name: "SERVICES", href: "#featured-services" },
     { name: "REVIEWS", href: "#reviews" },
     { name: "CONTACT", href: "#contact" },
   ];
@@ -37,7 +38,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0D1314]">
+    <nav className="fixed top-0 left-0 right-0 z-50 ">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8 lg:px-10">
         <div className="flex justify-center items-center h-18 sm:h-20 md:h-24 lg:h-30 space-x-1 sm:space-x-2 lg:space-x-4">
           {/* 🌟 Logo */}
@@ -55,24 +56,25 @@ const Navbar = () => {
             >
               <div className="w-full h-full rounded-full flex items-center justify-center shadow-inner shadow-cyan-400/40">
                 <Image
-                  src="/ahadLogo.png"
+                  src={ahadLogo}
                   alt="Ahad Logo"
                   width={32}
                   height={32}
                   className="w-5 h-5 sm:w-9 sm:h-9 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full object-cover"
+                  priority
                 />
               </div>
             </div>
           </div>
 
           {/* 🔗 Nav Links */}
-          <div className="flex space-x-1 sm:space-x-2 bg-[#1A2027] p-2 sm:p-2 md:p-3 lg:py-3 rounded-full border border-gray-700">
+          <div className="flex space-x-1 sm:space-x-2 bg-[#171717] border dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] p-2 sm:p-2 md:p-3 lg:py-3 rounded-full ">
             {navItems.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
                 onClick={(e) => handleSmoothScroll(e, item.href)}
-                className="bg-[#030404] text-gray-300 px-2 py-1.5 sm:px-3.5 sm:py-2 md:px-4 md:py-1.5 rounded-full border border-gray-700 
+                className="bg-gray-800/50 border border-[#06B2CF]/[0.3] rounded-full text-blue-300  px-2 py-1.5 sm:px-3.5 sm:py-2 md:px-4 md:py-1.5
                 transition-all duration-300 text-[7px] sm:text-[10px] md:text-sm lg:text-base font-medium 
                 hover:bg-white hover:text-black hover:scale-105 hover:font-bold"
               >
