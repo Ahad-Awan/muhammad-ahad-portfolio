@@ -7,6 +7,7 @@ import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { SkillsExpertise } from "@/components/SkillsExpertise";
 import StatsSection from "@/components/StatsSection.tsx";
 import ServicesSection from "@/components/ServiceSection";
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -233,7 +234,10 @@ export default function Home() {
       <StatsSection />
 
       {/* Services Section */}
-      <ServicesSection/>
+      <ServicesSection />
+
+      {/* Testimonials Section */}
+      <Testimonials/>
     </>
   );
 }
