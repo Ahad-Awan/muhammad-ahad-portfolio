@@ -11,11 +11,11 @@ type Project = {
   description: string;
   imageUrl: string;
   livePreviewUrl: string;
-  technologies: string[];
+  technologies: readonly string[]; // mark readonly-safe
 };
 
-// ✅ Use `satisfies` instead of `as` for type-safe inference
-const projectsData = [
+// ✅ Project data
+const projectsData: Project[] = [
   {
     id: 1,
     title: "L'Happy Curious",
@@ -64,8 +64,9 @@ const projectsData = [
       "E-commerce",
     ],
   },
-] satisfies Project[];
+];
 
+// ✅ Animation Variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -76,6 +77,7 @@ const containerVariants = {
     },
   },
 };
+
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -88,6 +90,7 @@ const itemVariants = {
   },
 };
 
+// ✅ Main Component
 export function FeaturedProjects() {
   return (
     <section
@@ -128,13 +131,13 @@ export function FeaturedProjects() {
               custom={index}
               className="w-full"
             >
-              {/* ✅ FIXED: Convert readonly → mutable */}
+              {/* ✅ FIXED: Spread to make mutable copy */}
               <ProjectCard
                 title={project.title}
                 description={project.description}
                 imageUrl={project.imageUrl}
                 livePreviewUrl={project.livePreviewUrl}
-                technologies={[...project.technologies]}
+                technologies={[...project.technologies]} // ← FIXED LINE
               />
             </motion.div>
           ))}
