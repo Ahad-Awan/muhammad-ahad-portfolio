@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import Image from "next/image";
 
 type Testimonial = {
   quote: string;
@@ -38,9 +39,9 @@ export default function Testimonials() {
 
   const [active, setActive] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setActive((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
   const handlePrev = () => {
     setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
@@ -58,7 +59,7 @@ export default function Testimonials() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" as any },
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
@@ -115,7 +116,7 @@ export default function Testimonials() {
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
-                  <img
+                  <Image
                     src={testimonial.src}
                     alt={testimonial.name}
                     width={500}

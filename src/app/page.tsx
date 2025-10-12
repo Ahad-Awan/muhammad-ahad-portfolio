@@ -35,7 +35,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut" as any,
+        ease: "easeOut",
       },
     },
   };
@@ -46,7 +46,7 @@ export default function Home() {
       duration: 3,
       repeat: Infinity,
       repeatType: "reverse" as const,
-      ease: "easeInOut" as any,
+      ease: "easeInOut",
     },
   };
 
@@ -183,7 +183,7 @@ export default function Home() {
               className="group px-8 py-4 rounded-full border-2 border-emerald-400 text-emerald-400 font-semibold transition-all duration-300 relative overflow-hidden backdrop-blur-sm cursor-pointer"
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                window.open("https://www.fiverr.com/your-username", "_blank");
+                window.open("https://www.fiverr.com/your-username", "_blank", "noopener,noreferrer");
               }}
             >
               <span className="relative z-10 flex items-center gap-2">
