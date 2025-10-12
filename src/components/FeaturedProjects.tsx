@@ -4,9 +4,18 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 
+// ✅ Type for your project objects
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  livePreviewUrl: string;
+  technologies: readonly string[];
+};
 
-// Featured project data - optimized for performance
-const projectsData = [
+// ✅ Array of projects (no type conflict)
+const projectsData: readonly Project[] = [
   {
     id: 1,
     title: "L’Happy Curious",
@@ -55,7 +64,7 @@ const projectsData = [
       "E-commerce",
     ],
   },
-] as const;
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -75,14 +84,17 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      easeOut: "easeOut",
+      ease: "easeOut",
     },
   },
 };
 
 export function FeaturedProjects() {
   return (
-    <section className="pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative z-10" id="featured-projects">
+    <section
+      className="pb-12 sm:pb-20 px-4 sm:px-6 lg:px-8 relative z-10"
+      id="featured-projects"
+    >
       <motion.div
         className="max-w-7xl mx-auto"
         variants={containerVariants}
@@ -91,7 +103,10 @@ export function FeaturedProjects() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {/* Header Section */}
-        <motion.div className="text-center mb-8 sm:mb-12 lg:mb-2" variants={itemVariants}>
+        <motion.div
+          className="text-center mb-8 sm:mb-12 lg:mb-2"
+          variants={itemVariants}
+        >
           <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
               Featured Projects
@@ -102,7 +117,7 @@ export function FeaturedProjects() {
           </p>
         </motion.div>
 
-        {/* Projects Grid - Show only first 3 projects */}
+        {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-0 sm:gap-x-4 md:gap-x-6 lg:gap-x-8 xl:gap-x-10 gap-y-4 justify-items-center"
           variants={containerVariants}
@@ -114,6 +129,7 @@ export function FeaturedProjects() {
               custom={index}
               className="w-full"
             >
+              {/* ✅ Convert readonly → mutable safely */}
               <ProjectCard
                 title={project.title}
                 description={project.description}
@@ -124,16 +140,13 @@ export function FeaturedProjects() {
             </motion.div>
           ))}
         </motion.div>
-        
+
         {/* View All Projects Button */}
-        <motion.div
-          className="flex justify-center"
-          variants={itemVariants}
-        >
+        <motion.div className="flex justify-center" variants={itemVariants}>
           <motion.button
             className="group px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold shadow-sm shadow-blue-500/25 transition-all duration-300 relative overflow-hidden cursor-pointer mt-14 sm:mt-20"
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.location.href = '/featured-projects'}
+            onClick={() => (window.location.href = "/featured-projects")}
           >
             <span className="relative z-10 flex items-center gap-2">
               View All Projects
