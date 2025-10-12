@@ -5,14 +5,24 @@ import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import Navbar from "@/components/Navbar";
 
+// Project type definition
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  livePreviewUrl: string;
+  technologies: string[];
+}
+
 // Projects Array 
-const allProjectsData = [
+const allProjectsData: Project[] = [
   {
     id: 1,
     title: "L’Happy Curious",
     description:
       "L’Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
-    imageUrl: "../images/LhappyCurious.png",
+    imageUrl: "/images/lhappycurious.png",
     livePreviewUrl: "https://www.lhappycurious.fr/",
     technologies: [
       "WordPress",
@@ -28,7 +38,7 @@ const allProjectsData = [
     title: "Ennomark",
     description:
       "Ennomark is a full-service digital agency offering web development, graphic design, SEO, digital marketing, cinematography, and app development.",
-    imageUrl: "../images/ennomark.png",
+    imageUrl: "/images/Ennomark.png",
     livePreviewUrl: "https://ennomark.co/",
     technologies: [
       "WordPress",
@@ -44,7 +54,7 @@ const allProjectsData = [
     title: "Qutiee - Smart Skincare",
     description:
       "Qutiee is a Turkish beauty brand specializing in high-quality skincare products designed to enhance natural radiance and promote healthy, glowing skin.",
-    imageUrl: "../images/qutiee.png",
+    imageUrl: "/images/Qutiee.png",
     livePreviewUrl: "https://qutiee.com.tr/",
     technologies: [
       "WordPress",
@@ -60,7 +70,7 @@ const allProjectsData = [
     title: "Bistrot des Amis",
     description:
       "Bistrot des Amis is a traditional French bistro serving authentic cuisine with local and organic ingredients, complemented by fine wines.",
-    imageUrl: "../images/Bistrot Des Amis.png",
+    imageUrl: "/images/Bistrot Des Amis.png",
     livePreviewUrl: "https://www.bistrotdesamis-fontainebleau.fr/",
     technologies: [
       "WordPress",
@@ -75,7 +85,7 @@ const allProjectsData = [
     title: "Nucta Formations",
     description:
       "Nucta Formations provides professional company formation, tax assistance, and 3PL logistics services for businesses in the USA, UK, and Canada.",
-    imageUrl: "../images/nuctaformation.png",
+    imageUrl: "/images/nuctaformation.png",
     livePreviewUrl: "https://nuctaformations.com/",
     technologies: [
       "WordPress",
@@ -90,7 +100,7 @@ const allProjectsData = [
     title: "Menifee Movers",
     description:
       "Menifee Movers provides reliable and stress free moving services across California. From local to long distance relocations, ensures safe packing and delivery.",
-    imageUrl: "../images/menifeemovers.png",
+    imageUrl: "/images/menifeemovers.png",
     livePreviewUrl: "https://menifeemovers.com/",
     technologies: ["WordPress", "Elementor", "CSS", "Nginx", "Travel Website"],
   },
@@ -99,7 +109,7 @@ const allProjectsData = [
     title: "The Beauty Mark",
     description:
       "The Beauty Mark offers expert online beauty courses and high quality cosmetic products. Learn professional makeup, lash, and skincare.",
-    imageUrl: "../images/thebeautymark.png",
+    imageUrl: "/images/thebeautymark.png",
     livePreviewUrl: "https://thebeautymark.com.au/",
     technologies: [
       "WordPress",
@@ -115,7 +125,7 @@ const allProjectsData = [
     title: "Soul Craze",
     description:
       "Soulcraze is a creative storytelling platform exploring dark poetry, psychological fiction, and emotional narratives through series like The Bloody Tulip.",
-    imageUrl: "../images/soulcraze.png",
+    imageUrl: "/images/soulcraze.png",
     livePreviewUrl: "https://soulcraze.rifaytech.com/",
     technologies: [
       "WordPress",
@@ -130,7 +140,7 @@ const allProjectsData = [
     title: "Ewago",
     description:
       "Ewago offers high quality fitness essentials like yoga mats, protein shakers, resistance bands, tummy trimmers, and more designed to power your workouts.",
-    imageUrl: "../images/ewago.png",
+    imageUrl: "/images/ewago.png",
     livePreviewUrl: "https://ewago.co/",
     technologies: ["Shopify", "Animate Css", "Cloudflare", "E-Commerce"],
   },
@@ -139,7 +149,7 @@ const allProjectsData = [
     title: "Costa Rica Horseback Riding",
     description:
       "Costa Rica Horseback Riding offers unforgettable guided tours through beaches, rainforests, and mountain trails.",
-    imageUrl: "../images/costarica.png",
+    imageUrl: "/images/costarica.png",
     livePreviewUrl: "https://costaricahorsebackriding.com/",
     technologies: [
       "WordPress",
@@ -182,7 +192,7 @@ export default function FeaturedProjectsPage() {
 
   // MAIN filter function (keeps logic in one place)
   const matchesFilter = (
-    project: (typeof allProjectsData)[number],
+    project: Project,
     filter: string
   ) => {
     const techs = (project.technologies || []).map((t) =>

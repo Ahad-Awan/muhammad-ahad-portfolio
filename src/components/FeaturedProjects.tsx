@@ -12,7 +12,7 @@ const projectsData = [
     title: "L’Happy Curious",
     description:
       "L’Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
-    imageUrl: "../images/LhappyCurious.png",
+    imageUrl: "/images/lhappycurious.png",
     livePreviewUrl: "https://www.lhappycurious.fr/",
     technologies: [
       "WordPress",
@@ -28,7 +28,7 @@ const projectsData = [
     title: "Ennomark Business Website",
     description:
       "Ennomark is a full-service digital agency offering web development, graphic design, SEO, digital marketing, cinematography, and app development.",
-    imageUrl: "../images/ennomark.png",
+    imageUrl: "/images/Ennomark.png",
     livePreviewUrl: "https://ennomark.co/",
     technologies: [
       "WordPress",
@@ -44,7 +44,7 @@ const projectsData = [
     title: "Qutiee - Smart Skincare",
     description:
       "Qutiee is a Turkish beauty brand specializing in high-quality skincare products designed to enhance natural radiance and promote healthy, glowing skin.",
-    imageUrl: "../images/qutiee.png",
+    imageUrl: "/images/Qutiee.png",
     livePreviewUrl: "https://qutiee.com.tr/",
     technologies: [
       "WordPress",
@@ -75,7 +75,7 @@ const itemVariants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut" as any,
+      easeOut: "easeOut",
     },
   },
 };

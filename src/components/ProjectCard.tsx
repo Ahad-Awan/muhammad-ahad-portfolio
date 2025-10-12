@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
@@ -21,10 +22,10 @@ export function ProjectCard({ title, description, imageUrl, livePreviewUrl, tech
       >
       <CardBody className="relative group/card dark:hover:shadow-lg dark:hover:shadow-[#06B2CF]/[0.1] border-[#06B2CF]/[0.3] w-full max-w-md h-[520px] sm:h-[550px] rounded-xl p-4 sm:p-6 border flex flex-col">
         <CardItem translateZ="100" className="w-full mb-4">
-          <img
+          <Image
             src={imageUrl}
-            height="1000"
-            width="1000"
+            height={1000}
+            width={1000}
             className="h-44 sm:h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
             alt={`${title} project screenshot`}
             loading="lazy"

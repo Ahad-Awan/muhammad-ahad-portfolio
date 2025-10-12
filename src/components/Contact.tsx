@@ -55,7 +55,7 @@ export default function ContactSection() {
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-3 sm:mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-              Let's Create Together
+              Let&apos;s Create Together
             </span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto px-2 sm:px-4 mt-4 sm:mt-6 mb-6 sm:mb-10">

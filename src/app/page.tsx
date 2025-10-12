@@ -35,7 +35,7 @@ export default function Home() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     },
   };
@@ -46,9 +46,9 @@ export default function Home() {
       duration: 3,
       repeat: Infinity,
       repeatType: "reverse" as const,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
-  };
+  } as const;
 
   if (!mounted) {
     return (
@@ -105,7 +105,7 @@ export default function Home() {
           >
             <div className="flex justify-center gap-4 mt-4">
               <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
-                Hello I'm
+                Hello I&apos;m
               </span>
               <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-blue-300 text-sm font-medium mb-2">
                 WordPress Expert
@@ -187,7 +187,7 @@ export default function Home() {
               }}
             >
               <span className="relative z-10 flex items-center gap-2">
-                Let's Work Together
+                Let&apos;s Work Together
               </span>
               <div className="absolute inset-0 bg-emerald-400 opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
             </motion.button>
