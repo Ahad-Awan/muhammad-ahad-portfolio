@@ -21,7 +21,7 @@ const projectsData: Project[] = [
     title: "L'Happy Curious",
     description:
       "L'Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
-    imageUrl: "/images/lhappycurious.png",
+    imageUrl: "/images/LhappyCurious.png",
     livePreviewUrl: "https://www.lhappycurious.fr/",
     technologies: [
       "WordPress",
@@ -37,7 +37,7 @@ const projectsData: Project[] = [
     title: "Ennomark Business Website",
     description:
       "Ennomark is a full-service digital agency offering web development, graphic design, SEO, digital marketing, cinematography, and app development.",
-    imageUrl: "/images/Ennomark.png",
+    imageUrl: "/images/ennomark.png",
     livePreviewUrl: "https://ennomark.co/",
     technologies: [
       "WordPress",

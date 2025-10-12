@@ -53,47 +53,47 @@ const skills = [
   {
     name: "WordPress",
     icon: <SiWordpress className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#21759B]"
-  },
-  {
-    name: "React",
-    icon: <SiReact className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#61DAFB]" // Official React blue
-  },
-  {
-    name: "JavaScript",
-    icon: <SiJavascript className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#F7DF1E]" // Official JavaScript yellow
-  },
-  {
-    name: "PHP",
-    icon: <SiPhp className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#777BB4]" // Official PHP purple
-  },
-  {
-    name: "WooCommerce",
-    icon: <SiWoocommerce className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#96588A]" // Official WooCommerce purple
+    color: "text-[#21759B]",
   },
   {
     name: "Elementor",
     icon: <SiElementor className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#9146FF]" // Official Elementor pink
+    color: "text-[#9146FF]", // Official Elementor pink
   },
   {
-    name: "HTML5",
-    icon: <SiHtml5 className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#E34F26]" // Official HTML5 orange
-  },
-  {
-    name: "CSS3",
-    icon: <SiCss3 className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#1572B6]" // Official CSS3 blue
+    name: "WooCommerce",
+    icon: <SiWoocommerce className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#96588A]", // Official WooCommerce purple
   },
   {
     name: "Shopify",
     icon: <SiShopify className="w-12 h-12 sm:w-16 sm:h-16" />,
-    color: "text-[#7AB55C]" // Official Shopify green
+    color: "text-[#7AB55C]", // Official Shopify green
+  },
+  {
+    name: "HTML5",
+    icon: <SiHtml5 className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#E34F26]", // Official HTML5 orange
+  },
+  {
+    name: "CSS3",
+    icon: <SiCss3 className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#1572B6]", // Official CSS3 blue
+  },
+  {
+    name: "JavaScript",
+    icon: <SiJavascript className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#F7DF1E]", // Official JavaScript yellow
+  },
+  {
+    name: "PHP",
+    icon: <SiPhp className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#777BB4]", // Official PHP purple
+  },
+  {
+    name: "React",
+    icon: <SiReact className="w-12 h-12 sm:w-16 sm:h-16" />,
+    color: "text-[#61DAFB]", // Official React blue
   },
 ];
 

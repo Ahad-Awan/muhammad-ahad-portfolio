@@ -22,7 +22,7 @@ const allProjectsData: Project[] = [
     title: "L’Happy Curious",
     description:
       "L’Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
-    imageUrl: "/images/lhappycurious.png",
+    imageUrl: "/images/LhappyCurious.png",
     livePreviewUrl: "https://www.lhappycurious.fr/",
     technologies: [
       "WordPress",
@@ -38,7 +38,7 @@ const allProjectsData: Project[] = [
     title: "Ennomark",
     description:
       "Ennomark is a full-service digital agency offering web development, graphic design, SEO, digital marketing, cinematography, and app development.",
-    imageUrl: "/images/Ennomark.png",
+    imageUrl: "/images/ennomark.png",
     livePreviewUrl: "https://ennomark.co/",
     technologies: [
       "WordPress",
@@ -70,7 +70,7 @@ const allProjectsData: Project[] = [
     title: "Bistrot des Amis",
     description:
       "Bistrot des Amis is a traditional French bistro serving authentic cuisine with local and organic ingredients, complemented by fine wines.",
-    imageUrl: "/images/Bistrot Des Amis.png",
+    imageUrl: "/images/Bistrotdesamis.png",
     livePreviewUrl: "https://www.bistrotdesamis-fontainebleau.fr/",
     technologies: [
       "WordPress",
@@ -236,8 +236,7 @@ export default function FeaturedProjectsPage() {
     const source = Array.isArray(allProjectsData) ? [...allProjectsData] : [];
     const updated = source.filter((p) => matchesFilter(p, selectedFilter));
     setFilteredProjects(updated);
-    // scroll-to-top of the grid (optional UX nicety) — can remove if you don't want it
-    // window.scrollTo({ top: 0, behavior: "smooth" });
+
   }, [selectedFilter]);
 
   return (
