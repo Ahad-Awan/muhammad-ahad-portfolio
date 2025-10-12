@@ -40,15 +40,16 @@ export default function Home() {
     },
   };
 
-  const floatingAnimation = {
-    y: [-10, 10],
-    transition: {
-      duration: 3,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      ease: "easeInOut" as const,
-    },
-  } as const;
+const floatingAnimation = {
+  y: [-10, 10],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    repeatType: "reverse",
+    ease: "easeInOut",
+  },
+};
+
 
   if (!mounted) {
     return (
