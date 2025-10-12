@@ -62,7 +62,7 @@ const projectsData: Project[] = [
       "E-commerce",
     ],
   },
-];
+] as Project[];
 
 const containerVariants = {
   hidden: { opacity: 0 },
