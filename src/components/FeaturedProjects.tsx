@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 
+// ✅ Define Project type
 type Project = {
   id: number;
   title: string;
@@ -13,7 +14,8 @@ type Project = {
   technologies: string[];
 };
 
-const projectsData: Project[] = [
+// ✅ Use `satisfies` instead of `as` for type-safe inference
+const projectsData = [
   {
     id: 1,
     title: "L'Happy Curious",
@@ -28,7 +30,7 @@ const projectsData: Project[] = [
       "Yoast SEO",
       "Contact Form 7",
       "Restaurant website",
-    ] as string[], // ✅ explicitly mutable
+    ],
   },
   {
     id: 2,
@@ -44,7 +46,7 @@ const projectsData: Project[] = [
       "Yoast SEO",
       "Contact Form 7",
       "Digital Agency",
-    ] as string[], // ✅ explicitly mutable
+    ],
   },
   {
     id: 3,
@@ -60,10 +62,9 @@ const projectsData: Project[] = [
       "RankMath SEO",
       "Contact Form 7",
       "E-commerce",
-    ] as string[], 
+    ],
   },
-];
-
+] satisfies Project[];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -75,17 +76,17 @@ const containerVariants = {
     },
   },
 };
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut" as const,
-      },
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut" as const,
     },
-  };
+  },
+};
 
 export function FeaturedProjects() {
   return (
