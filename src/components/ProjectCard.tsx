@@ -5,13 +5,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 
-interface ProjectCardProps {
+type ProjectCardProps = {
   title: string;
   description: string;
   imageUrl: string;
   livePreviewUrl: string;
-  technologies: string[];
-}
+  technologies: readonly string[];
+};
+
 
 export function ProjectCard({ title, description, imageUrl, livePreviewUrl, technologies }: ProjectCardProps) {
   return (
