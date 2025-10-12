@@ -11,11 +11,11 @@ type Project = {
   description: string;
   imageUrl: string;
   livePreviewUrl: string;
-  technologies: readonly string[];
+  technologies: string[]; // <-- removed readonly
 };
 
-// ✅ Array of projects (no type conflict)
-const projectsData: readonly Project[] = [
+// ✅ Array of projects
+const projectsData: Project[] = [
   {
     id: 1,
     title: "L’Happy Curious",
@@ -66,6 +66,7 @@ const projectsData: readonly Project[] = [
   },
 ];
 
+// ✅ Framer Motion variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -89,6 +90,7 @@ const itemVariants = {
   },
 };
 
+// ✅ FeaturedProjects Component
 export function FeaturedProjects() {
   return (
     <section
@@ -129,13 +131,12 @@ export function FeaturedProjects() {
               custom={index}
               className="w-full"
             >
-              {/* ✅ Convert readonly → mutable safely */}
               <ProjectCard
                 title={project.title}
                 description={project.description}
                 imageUrl={project.imageUrl}
                 livePreviewUrl={project.livePreviewUrl}
-                technologies={[...project.technologies]}
+                technologies={project.technologies}
               />
             </motion.div>
           ))}
