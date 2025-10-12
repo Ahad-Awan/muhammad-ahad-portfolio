@@ -45,10 +45,12 @@ const floatingAnimation = {
   transition: {
     duration: 3,
     repeat: Infinity,
-    repeatType: "reverse",
-    ease: "easeInOut",
+    repeatType: "reverse" as const,
+    ease: "easeInOut" as const, // ✅ Fix: use a single string, not an array
   },
 };
+
+
 
 
   if (!mounted) {
