@@ -4,18 +4,16 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 
-// ✅ Type for your project objects
 type Project = {
   id: number;
   title: string;
   description: string;
   imageUrl: string;
   livePreviewUrl: string;
-  technologies: string[]; // <-- removed readonly
+  technologies: string[];
 };
 
-// ✅ Array of projects
-const projectsData: Project[] = [
+const projectsData = [
   {
     id: 1,
     title: "L’Happy Curious",
@@ -66,7 +64,6 @@ const projectsData: Project[] = [
   },
 ];
 
-// ✅ Framer Motion variants
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -77,20 +74,18 @@ const containerVariants = {
     },
   },
 };
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut" as const,
+      },
     },
-  },
-};
+  };
 
-// ✅ FeaturedProjects Component
 export function FeaturedProjects() {
   return (
     <section
@@ -131,12 +126,13 @@ export function FeaturedProjects() {
               custom={index}
               className="w-full"
             >
+              {/* ✅ FIXED: Convert readonly → mutable */}
               <ProjectCard
                 title={project.title}
                 description={project.description}
                 imageUrl={project.imageUrl}
                 livePreviewUrl={project.livePreviewUrl}
-                technologies={project.technologies}
+                technologies={[...project.technologies]}
               />
             </motion.div>
           ))}
