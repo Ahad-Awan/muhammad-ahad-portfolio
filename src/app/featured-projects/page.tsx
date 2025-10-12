@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ProjectCard } from "@/components/ProjectCard";
 import Navbar from "@/components/Navbar";
 
@@ -157,12 +157,12 @@ const containerVariants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.45, ease: "easeOut" as any },
+    transition: { duration: 0.45, ease: "easeOut" },
   },
 };
 
