@@ -28,7 +28,7 @@ const projectsData: Project[] = [
       "Yoast SEO",
       "Contact Form 7",
       "Restaurant website",
-    ],
+    ] as string[], // ✅ explicitly mutable
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ const projectsData: Project[] = [
       "Yoast SEO",
       "Contact Form 7",
       "Digital Agency",
-    ],
+    ] as string[], // ✅ explicitly mutable
   },
   {
     id: 3,
@@ -60,9 +60,10 @@ const projectsData: Project[] = [
       "RankMath SEO",
       "Contact Form 7",
       "E-commerce",
-    ],
+    ] as string[], 
   },
-] as Project[];
+];
+
 
 const containerVariants = {
   hidden: { opacity: 0 },
