@@ -137,7 +137,7 @@ export function FeaturedProjects() {
                 description={project.description}
                 imageUrl={project.imageUrl}
                 livePreviewUrl={project.livePreviewUrl}
-                technologies={[...project.technologies]} // ← FIXED LINE
+                technologies={project.technologies} // ← FIXED LINE
               />
             </motion.div>
           ))}
