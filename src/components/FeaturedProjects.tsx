@@ -13,12 +13,12 @@ type Project = {
   technologies: string[];
 };
 
-const projectsData = [
+const projectsData: Project[] = [
   {
     id: 1,
-    title: "L’Happy Curious",
+    title: "L'Happy Curious",
     description:
-      "L’Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
+      "L'Happy Curious is a cozy restaurant and wine bar in Fontainebleau, France, offering high-quality organic meats and a refined selection of wines.",
     imageUrl: "/images/lhappycurious.png",
     livePreviewUrl: "https://www.lhappycurious.fr/",
     technologies: [
